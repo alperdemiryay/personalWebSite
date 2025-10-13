@@ -127,8 +127,8 @@
     "jobTitle": "Lead Broadband Services Professional",
     "url": "https://www.alperdemiryay.com/",
     "sameAs": [
-      "https://www.linkedin.com/in/USERNAME", 
-      "https://github.com/USERNAME"
+      "https://www.linkedin.com/in/alperdemiryay",
+      "https://github.com/alperdemiryay"
     ]
   }
   </script>
@@ -169,15 +169,13 @@
         <p class="subtitle">Lead Broadband Services Professional — designing, scaling, and operating fixed & mobile broadband platforms. Interested in DPI, BNG, data engineering, and automation.</p>
         <div class="actions">
           <a class="cta" href="mailto:hello@alperdemiryay.com">Email me</a>
-          <a class="pill" href="https://www.linkedin.com/in/USERNAME" target="_blank" rel="noreferrer">LinkedIn</a>
-          <a class="pill" href="https://github.com/USERNAME" target="_blank" rel="noreferrer">GitHub</a>
+          <a class="pill" href="https://www.linkedin.com/in/alperdemiryay" target="_blank" rel="noreferrer">LinkedIn</a>
+          <a class="pill" href="https://github.com/alperdemiryay" target="_blank" rel="noreferrer">GitHub</a>
           <a class="pill" href="#projects">See projects ↓</a>
         </div>
       </div>
       <div class="card">
         <img src="profile.jpg" alt="Alper Demiryay" style="width:100%; border-radius: var(--radius); aspect-ratio: 1/1; object-fit: cover; border: 1px solid color-mix(in oklab, var(--muted) 20%, transparent);">
-        <p class="muted" style="margin-top:10px">Replace <code>/profile.jpg</code> with your photo.
-        </p>
       </div>
     </section>
 
@@ -185,16 +183,31 @@
       <h2>About</h2>
       <div class="grid">
         <div class="span-8 card">
-          <p>I’m a network engineer focused on broadband services at scale. I’ve worked across operations and planning, including DPI procurement and POCs, BNG migrations, CGNAT mapping/automation, and reporting pipelines.
-          I enjoy building robust systems, writing clean automation (Python, Bash, Ansible), and turning telemetry into decisions.</p>
-          <p>Beyond networks, I’m into running, guitar (rock/metal), and exploring the outdoors with my family.</p>
+          <p>I’m <strong>Alper Demiryay</strong>, a broadband network engineer based in İstanbul. I build and scale fixed & mobile broadband platforms—<em>DPI</em>, <em>BNG</em>, <em>CGNAT</em>—and the automation and data pipelines that keep them observable and resilient. I’ve spent years on the frontlines in operations and now focus on planning/engineering and long‑term reliability.</p>
+          <p>My work blends <strong>network engineering</strong> with <strong>software practices</strong>: Python tooling for audits and migrations, SQL analytics on Vertica/Oracle/Postgres, containers for reproducible POCs, and Grafana for evidence‑based decisions. I like turning messy telemetry into clear actions.</p>
+          <p>Outside of work: I’m a regular runner (half‑marathon training), a rock/metal guitarist, and a dad of three. I love projects that combine systems thinking with practical impact.</p>
+          <p class="muted"><em>Türkçe</em>: İstanbul’da yaşayan bir ağ mühendisi olarak DPI/BNG/CGNAT alanlarına ve otomasyon‑veri boru hatlarına odaklanıyorum. Operasyondan gelen deneyimimi planlama ve ölçeklenebilirlik tarafına taşıyarak güvenilir ve ölçülebilir sistemler kurmayı seviyorum.</p>
+          <div class="actions" style="margin-top:10px">
+            <a class="pill" href="#contact">Get in touch</a>
+            <a class="pill" href="https://github.com/alperdemiryay" target="_blank" rel="noreferrer">GitHub</a>
+            <a class="pill" href="https://www.linkedin.com/in/alperdemiryay" target="_blank" rel="noreferrer">LinkedIn</a>
+          </div>
         </div>
         <div class="span-4 card">
+          <p class="kicker">Stack</p>
           <ul class="muted" style="margin:0; padding-left:18px">
-            <li><strong>Location:</strong> İstanbul, Türkiye</li>
-            <li><strong>Role:</strong> Lead Broadband Services Professional</li>
-            <li><strong>Focus:</strong> DPI, BNG, CGNAT, data pipelines</li>
-            <li><strong>Tools:</strong> Python, SQL (Vertica/Oracle/Postgres), Docker, Linux</li>
+            <li><strong>Networking:</strong> DPI, BNG, CGNAT, QoS</li>
+            <li><strong>Languages:</strong> Python, Bash, SQL</li>
+            <li><strong>Data:</strong> Vertica, Oracle, Postgres</li>
+            <li><strong>Infra:</strong> Docker, Linux, Ansible</li>
+            <li><strong>Obs:</strong> Grafana, Prometheus</li>
+          </ul>
+          <hr style="border:0; border-top:1px solid color-mix(in oklab, var(--muted) 20%, transparent); margin:12px 0" />
+          <p class="kicker">Highlights</p>
+          <ul class="muted" style="margin:0; padding-left:18px">
+            <li>DPI RFI/RFP/POC leadership</li>
+            <li>BNG migrations; resiliency improvements</li>
+            <li>Flow logging & reporting pipelines</li>
           </ul>
         </div>
       </div>
@@ -227,26 +240,27 @@
 
     <section id="projects">
       <h2>Projects</h2>
+      <p class="muted" style="margin-top:-6px">A few things I built or maintain. More at <a href="https://github.com/alperdemiryay" target="_blank" rel="noreferrer">github.com/alperdemiryay</a>.</p>
       <div class="grid">
         <article class="span-4 card project">
           <div>
             <h3><a href="https://github.com/alperdemiryay/TextFSM_Tester_Gui" target="_blank" rel="noreferrer">TextFSM Tester GUI</a></h3>
             <p class="muted">Python · Network parsing · GUI</p>
-            <p>Desktop utility to rapidly test <code>TextFSM</code> templates against raw device outputs and visualize parsed tables in real time—speeding up network automation template authoring.</p>
+            <p>Desktop utility to rapidly validate <code>TextFSM</code> templates against raw device outputs and view structured tables live—speeding up network automation template authoring and troubleshooting.</p>
           </div>
         </article>
         <article class="span-4 card project">
           <div>
             <h3><a href="https://github.com/alperdemiryay/Domain_Reachability_Check" target="_blank" rel="noreferrer">Domain Reachability Check</a></h3>
             <p class="muted">Python · Async checks · SQLite</p>
-            <p>Multi-threaded/GUI tool that tests DNS/HTTP reachability of large domain lists, stores results to SQLite, and exports reports—handy for list hygiene and block/allow verification.</p>
+            <p>Multi-threaded/GUI tool that tests DNS/HTTP reachability of large domain lists, stores results to SQLite, and exports reports—handy for list hygiene and block/allow verification at scale.</p>
           </div>
         </article>
         <article class="span-4 card project">
           <div>
             <h3><a href="https://github.com/alperdemiryay/Cgnat_Ip_Check" target="_blank" rel="noreferrer">CGNAT IP Check</a></h3>
             <p class="muted">Python · Broadband ops</p>
-            <p>Helper scripts for auditing CGNAT mappings and quickly checking whether an IP is behind carrier-grade NAT, simplifying investigations and customer support workflows.</p>
+            <p>Helpers for auditing CGNAT mappings and quickly checking whether an IP is behind carrier-grade NAT, simplifying investigations and customer support workflows.</p>
           </div>
         </article>
         <article class="span-4 card project">
@@ -265,14 +279,11 @@
         </article>
         <article class="span-4 card project">
           <div>
-            <h3><a href="https://github.com/alperdemiryay/KO_Attack_Bot" target="_blank" rel="noreferrer">KO Attack Bot</a></h3>
-            <p class="muted">Python · Automation</p>
-            <p>Experimental automation scripts (archived/learning) exploring request patterns and control flows.</p>
+            <h3><a href="https://github.com/alperdemiryay/imkbStockPricePredict" target="_blank" rel="noreferrer">IMKB Stock Price Predict</a></h3>
+            <p class="muted">Python · Time series · ML</p>
+            <p>Experiments forecasting Borsa İstanbul (İMKB/BIST) stock prices using classic time‑series and ML baselines; data prep, feature engineering, and evaluation pipelines.</p>
           </div>
         </article>
-      </div>
-      <div class="card" style="margin-top:18px">
-        <p class="muted" style="margin:0">See more on <a href="https://github.com/alperdemiryay" target="_blank" rel="noreferrer">github.com/alperdemiryay</a>.</p>
       </div>
     </section>
 
@@ -298,8 +309,8 @@
         <p>Want to collaborate or say hi? The fastest way is email. I’m open to exchanging ideas on broadband networking, data engineering, and automation.</p>
         <div class="actions">
           <a class="cta" href="mailto:hello@alperdemiryay.com">hello@alperdemiryay.com</a>
-          <a class="pill" href="https://www.linkedin.com/in/USERNAME" target="_blank" rel="noreferrer">LinkedIn</a>
-          <a class="pill" href="https://github.com/USERNAME" target="_blank" rel="noreferrer">GitHub</a>
+          <a class="pill" href="https://www.linkedin.com/in/alperdemiryay" target="_blank" rel="noreferrer">LinkedIn</a>
+          <a class="pill" href="https://github.com/alperdemiryay" target="_blank" rel="noreferrer">GitHub</a>
         </div>
       </div>
     </section>
