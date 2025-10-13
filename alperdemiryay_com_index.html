@@ -1,0 +1,347 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Alper Demiryay — Network & Broadband Services</title>
+  <meta name="description" content="Personal website of Alper Demiryay — Lead Broadband Services Professional. Networking, data engineering, and tech notes." />
+  <link rel="canonical" href="https://www.alperdemiryay.com/" />
+  <meta name="theme-color" content="#0f172a" />
+  <!-- Open Graph -->
+  <meta property="og:title" content="Alper Demiryay — Network & Broadband Services" />
+  <meta property="og:description" content="Lead Broadband Services Professional. Notes on networking, data, and engineering." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.alperdemiryay.com/" />
+  <meta property="og:image" content="/og-image.jpg" />
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Alper Demiryay — Network & Broadband Services" />
+  <meta name="twitter:description" content="Lead Broadband Services Professional. Notes on networking, data, and engineering." />
+  <meta name="twitter:image" content="/og-image.jpg" />
+  <link rel="icon" href="/favicon.ico" />
+  <style>
+    /* Design system */
+    :root {
+      --bg: #0b1220;          /* slate-950 */
+      --surface: #0f172a;     /* slate-900 */
+      --card: #111827;        /* gray-900 */
+      --muted: #94a3b8;       /* slate-400 */
+      --text: #e5e7eb;        /* gray-200 */
+      --primary: #38bdf8;     /* sky-400 */
+      --accent: #22d3ee;      /* cyan-400 */
+      --ring: rgba(56,189,248,.35);
+      --radius: 16px;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --maxw: 1080px;
+    }
+    @media (prefers-color-scheme: light) {
+      :root:not([data-theme]) {
+        --bg: #f8fafc;        /* slate-50 */
+        --surface: #ffffff;   /* white */
+        --card: #f1f5f9;      /* slate-100 */
+        --muted: #475569;     /* slate-600 */
+        --text: #0f172a;      /* slate-900 */
+        --primary: #0369a1;   /* sky-800 */
+        --accent: #0891b2;    /* cyan-700 */
+        --ring: rgba(3,105,161,.25);
+      }
+    }
+    }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0; background: radial-gradient(1200px 600px at 80% -10%, rgba(56,189,248,.08), transparent), var(--bg);
+      color: var(--text); font: 16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+      letter-spacing: .2px;
+    }
+    a { color: var(--primary); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .container { width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 20px; }
+    header {
+      position: sticky; top: 0; z-index: 40;
+      background: color-mix(in oklab, var(--surface) 88%, transparent);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid color-mix(in oklab, var(--muted) 22%, transparent);
+    }
+    .nav { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+    .brand { font-weight: 700; letter-spacing: .3px; }
+    .brand strong { color: var(--primary); }
+    .nav ul { display: flex; gap: 18px; list-style: none; margin: 0; padding: 0; }
+    .nav a { color: var(--text); opacity: .9; font-weight: 600; }
+    .nav a:hover { opacity: 1; }
+    .cta { display: inline-flex; align-items: center; gap: 8px; padding: 10px 14px; border-radius: 999px; background: linear-gradient(135deg, var(--primary), var(--accent)); color: white; border: none; box-shadow: var(--shadow); cursor: pointer; }
+
+    .hero { display: grid; grid-template-columns: 1.2fr .8fr; gap: 32px; align-items: center; padding: 56px 0; }
+    .hero .card { background: color-mix(in oklab, var(--card) 88%, transparent); border: 1px solid color-mix(in oklab, var(--muted) 15%, transparent); padding: 28px; border-radius: var(--radius); box-shadow: var(--shadow); }
+    h1 { font-size: clamp(32px, 6vw, 56px); line-height: 1.1; margin: 0 0 8px; }
+    .subtitle { font-size: clamp(16px, 2.2vw, 20px); color: var(--muted); margin-bottom: 18px; }
+    .actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 16px; }
+    .pill { display: inline-flex; align-items: center; gap: 8px; padding: 8px 12px; border-radius: 999px; background: color-mix(in oklab, var(--surface) 92%, transparent); border: 1px solid color-mix(in oklab, var(--muted) 20%, transparent); }
+
+    .grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 18px; }
+    .span-4 { grid-column: span 4; }
+    .span-6 { grid-column: span 6; }
+    .span-8 { grid-column: span 8; }
+
+    section { padding: 36px 0 18px; }
+    section h2 { font-size: 28px; margin: 0 0 16px; }
+    .card { background: color-mix(in oklab, var(--card) 88%, transparent); border: 1px solid color-mix(in oklab, var(--muted) 15%, transparent); padding: 18px; border-radius: var(--radius); box-shadow: var(--shadow); }
+    .muted { color: var(--muted); }
+    .kicker { text-transform: uppercase; letter-spacing: .22em; font-weight: 800; font-size: 12px; color: var(--muted); }
+
+    .project { display: flex; gap: 14px; align-items: flex-start; }
+    .project h3 { margin: 0; font-size: 18px; }
+    .project p { margin: 6px 0 0; }
+
+    .footer { padding: 36px 0 56px; color: var(--muted); font-size: 14px; }
+
+    .toggle { background: none; border: 1px solid color-mix(in oklab, var(--muted) 25%, transparent); color: var(--text); padding: 8px 12px; border-radius: 999px; cursor: pointer; }
+
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; }
+      .grid { grid-template-columns: repeat(6, 1fr); }
+      .span-8 { grid-column: span 6; }
+      .span-6 { grid-column: span 6; }
+      .span-4 { grid-column: span 6; }
+    }
+  </style>
+  <script>
+    // Simple dark/light toggle (persists in localStorage)
+    const applyTheme = (mode) => {
+      document.documentElement.dataset.theme = mode;
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', mode === 'light' ? '#ffffff' : '#0f172a');
+    };
+    const preferred = localStorage.getItem('theme') || (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+    applyTheme(preferred);
+    function toggleTheme() {
+      const next = (document.documentElement.dataset.theme === 'light') ? 'dark' : 'light';
+      localStorage.setItem('theme', next);
+      applyTheme(next);
+    }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Alper Demiryay",
+    "jobTitle": "Lead Broadband Services Professional",
+    "url": "https://www.alperdemiryay.com/",
+    "sameAs": [
+      "https://www.linkedin.com/in/USERNAME", 
+      "https://github.com/USERNAME"
+    ]
+  }
+  </script>
+  <style>
+    /* Theme overrides when toggled */
+    [data-theme="light"] {
+      --bg: #f8fafc; --surface: #ffffff; --card: #f1f5f9; --muted: #475569; --text: #0f172a; --primary: #0369a1; --accent: #0891b2; --ring: rgba(3,105,161,.25);
+      background: var(--bg);
+    }
+    [data-theme="dark"] {
+      --bg: #0b1220; --surface: #0f172a; --card: #111827; --muted: #94a3b8; --text: #e5e7eb; --primary: #38bdf8; --accent: #22d3ee; --ring: rgba(56,189,248,.35);
+      background: var(--bg);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand">alper<strong>demiryay</strong>.com</div>
+      <nav>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#writing">Writing</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="toggle" onclick="toggleTheme()" title="Toggle dark/light">🌓</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="card">
+        <p class="kicker">Hello, I’m</p>
+        <h1>Alper Demiryay</h1>
+        <p class="subtitle">Lead Broadband Services Professional — designing, scaling, and operating fixed & mobile broadband platforms. Interested in DPI, BNG, data engineering, and automation.</p>
+        <div class="actions">
+          <a class="cta" href="mailto:hello@alperdemiryay.com">Email me</a>
+          <a class="pill" href="https://www.linkedin.com/in/USERNAME" target="_blank" rel="noreferrer">LinkedIn</a>
+          <a class="pill" href="https://github.com/USERNAME" target="_blank" rel="noreferrer">GitHub</a>
+          <a class="pill" href="#projects">See projects ↓</a>
+        </div>
+      </div>
+      <div class="card">
+        <img src="profile.jpg" alt="Alper Demiryay" style="width:100%; border-radius: var(--radius); aspect-ratio: 1/1; object-fit: cover; border: 1px solid color-mix(in oklab, var(--muted) 20%, transparent);">
+        <p class="muted" style="margin-top:10px">Replace <code>/profile.jpg</code> with your photo.
+        </p>
+      </div>
+    </section>
+
+    <section id="about">
+      <h2>About</h2>
+      <div class="grid">
+        <div class="span-8 card">
+          <p>I’m a network engineer focused on broadband services at scale. I’ve worked across operations and planning, including DPI procurement and POCs, BNG migrations, CGNAT mapping/automation, and reporting pipelines.
+          I enjoy building robust systems, writing clean automation (Python, Bash, Ansible), and turning telemetry into decisions.</p>
+          <p>Beyond networks, I’m into running, guitar (rock/metal), and exploring the outdoors with my family.</p>
+        </div>
+        <div class="span-4 card">
+          <ul class="muted" style="margin:0; padding-left:18px">
+            <li><strong>Location:</strong> İstanbul, Türkiye</li>
+            <li><strong>Role:</strong> Lead Broadband Services Professional</li>
+            <li><strong>Focus:</strong> DPI, BNG, CGNAT, data pipelines</li>
+            <li><strong>Tools:</strong> Python, SQL (Vertica/Oracle/Postgres), Docker, Linux</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <h2>Experience</h2>
+      <div class="grid">
+        <div class="span-6 card">
+          <h3>Lead Broadband Services Professional</h3>
+          <p class="muted">Turkcell — Network Capabilities · 2024 — Present</p>
+          <ul>
+            <li>DPI RFI/RFP/POC leadership; test topologies & KPIs</li>
+            <li>BNG migrations and broadband network transformations</li>
+            <li>Flow logging & reporting pipelines (Vertica, GaussDB)</li>
+            <li>Automation with Python/Bash; containerized tooling</li>
+          </ul>
+        </div>
+        <div class="span-6 card">
+          <h3>Core Network Operations (previously)</h3>
+          <p class="muted">Operations → Planning/Engineering · 5+ years</p>
+          <ul>
+            <li>Operational excellence on broadband platforms</li>
+            <li>Incident response, performance tuning, resiliency</li>
+            <li>Capacity planning & KPI-driven improvements</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <h2>Projects</h2>
+      <div class="grid">
+        <article class="span-4 card project">
+          <div>
+            <h3><a href="https://github.com/alperdemiryay/TextFSM_Tester_Gui" target="_blank" rel="noreferrer">TextFSM Tester GUI</a></h3>
+            <p class="muted">Python · Network parsing · GUI</p>
+            <p>Desktop utility to rapidly test <code>TextFSM</code> templates against raw device outputs and visualize parsed tables in real time—speeding up network automation template authoring.</p>
+          </div>
+        </article>
+        <article class="span-4 card project">
+          <div>
+            <h3><a href="https://github.com/alperdemiryay/Domain_Reachability_Check" target="_blank" rel="noreferrer">Domain Reachability Check</a></h3>
+            <p class="muted">Python · Async checks · SQLite</p>
+            <p>Multi-threaded/GUI tool that tests DNS/HTTP reachability of large domain lists, stores results to SQLite, and exports reports—handy for list hygiene and block/allow verification.</p>
+          </div>
+        </article>
+        <article class="span-4 card project">
+          <div>
+            <h3><a href="https://github.com/alperdemiryay/Cgnat_Ip_Check" target="_blank" rel="noreferrer">CGNAT IP Check</a></h3>
+            <p class="muted">Python · Broadband ops</p>
+            <p>Helper scripts for auditing CGNAT mappings and quickly checking whether an IP is behind carrier-grade NAT, simplifying investigations and customer support workflows.</p>
+          </div>
+        </article>
+        <article class="span-4 card project">
+          <div>
+            <h3><a href="https://github.com/alperdemiryay/PortScanMT" target="_blank" rel="noreferrer">PortScanMT</a></h3>
+            <p class="muted">Python · Multithreaded scanner</p>
+            <p>Lightweight multithreaded TCP port scanner with clean output for quick reachability sweeps during troubleshooting.</p>
+          </div>
+        </article>
+        <article class="span-4 card project">
+          <div>
+            <h3><a href="https://github.com/alperdemiryay/md5HashDecoder" target="_blank" rel="noreferrer">md5HashDecoder</a></h3>
+            <p class="muted">Python · Security</p>
+            <p>Small utility that attempts to decode MD5 hashes using common strategies—useful during log analysis and quick checks.</p>
+          </div>
+        </article>
+        <article class="span-4 card project">
+          <div>
+            <h3><a href="https://github.com/alperdemiryay/KO_Attack_Bot" target="_blank" rel="noreferrer">KO Attack Bot</a></h3>
+            <p class="muted">Python · Automation</p>
+            <p>Experimental automation scripts (archived/learning) exploring request patterns and control flows.</p>
+          </div>
+        </article>
+      </div>
+      <div class="card" style="margin-top:18px">
+        <p class="muted" style="margin:0">See more on <a href="https://github.com/alperdemiryay" target="_blank" rel="noreferrer">github.com/alperdemiryay</a>.</p>
+      </div>
+    </section>
+
+    <section id="writing">
+      <h2>Writing</h2>
+      <div class="grid">
+        <div class="span-6 card">
+          <h3>Diagnosing SSL: self-signed in chain with requests</h3>
+          <p class="muted">How I debugged a cert chain issue that browsers accept but Python rejects, and safe ways to fix it.</p>
+          <p><a href="#">Read →</a></p>
+        </div>
+        <div class="span-6 card">
+          <h3>uBlock lists & domain filters exploration</h3>
+          <p class="muted">Parsing adblock lists to extract exact-match domains and avoid noisy patterns.</p>
+          <p><a href="#">Read →</a></p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <div class="card">
+        <p>Want to collaborate or say hi? The fastest way is email. I’m open to exchanging ideas on broadband networking, data engineering, and automation.</p>
+        <div class="actions">
+          <a class="cta" href="mailto:hello@alperdemiryay.com">hello@alperdemiryay.com</a>
+          <a class="pill" href="https://www.linkedin.com/in/USERNAME" target="_blank" rel="noreferrer">LinkedIn</a>
+          <a class="pill" href="https://github.com/USERNAME" target="_blank" rel="noreferrer">GitHub</a>
+        </div>
+      </div>
+    </section>
+
+    <section aria-label="At-a-glance" style="padding-top: 0">
+      <div class="grid">
+        <div class="span-4 card">
+          <p class="kicker">Focus</p>
+          <p>DPI · BNG · CGNAT · Data Pipelines · Automation</p>
+        </div>
+        <div class="span-4 card">
+          <p class="kicker">Tech</p>
+          <p>Python · Bash · SQL · Docker · Linux · Git</p>
+        </div>
+        <div class="span-4 card">
+          <p class="kicker">Hobbies</p>
+          <p>Running · Guitar (rock/metal) · Family trips</p>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container">
+        <div style="display:flex; justify-content: space-between; flex-wrap: wrap; gap: 12px;">
+          <div>© <span id="y"></span> Alper Demiryay</div>
+          <div class="muted">Built with static HTML/CSS · Deployed on Cloudflare Pages</div>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    // Year stamp
+    document.getElementById('y').textContent = new Date().getFullYear();
+    // Smooth scroll for internal links
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const id = a.getAttribute('href').slice(1);
+        const el = document.getElementById(id);
+        if (el) { e.preventDefault(); el.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+      });
+    });
+  </script>
+</body>
+</html>
