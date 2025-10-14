@@ -3,20 +3,18 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Alper Demiryay — Network & Broadband Services</title>
-  <meta name="description" content="Personal website of Alper Demiryay — Lead Broadband Services Professional. Networking, data engineering, and tech notes." />
+  <title>Alper Demiryay — Lead Network Engineer | Broadband, Automation & Data</title>
+  <meta name="description" content="Lead Network Engineer specializing in carrier-grade broadband platforms (DPI, BNG, CGNAT). Blending network architecture with Python, SQL, and data pipelines to enhance performance and reliability." />
   <link rel="canonical" href="https://www.alperdemiryay.com/" />
   <meta name="theme-color" content="#0f172a" />
-  <!-- Open Graph -->
-  <meta property="og:title" content="Alper Demiryay — Network & Broadband Services" />
-  <meta property="og:description" content="Lead Broadband Services Professional. Notes on networking, data, and engineering." />
+  <meta property="og:title" content="Alper Demiryay — Lead Network Engineer | Broadband, Automation & Data" />
+  <meta property="og:description" content="Lead Network Engineer specializing in carrier-grade broadband platforms (DPI, BNG, CGNAT). Blending network architecture with Python, SQL, and data pipelines to enhance performance and reliability." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://www.alperdemiryay.com/" />
   <meta property="og:image" content="/og-image.jpg" />
-  <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Alper Demiryay — Network & Broadband Services" />
-  <meta name="twitter:description" content="Lead Broadband Services Professional. Notes on networking, data, and engineering." />
+  <meta name="twitter:title" content="Alper Demiryay — Lead Network Engineer | Broadband, Automation & Data" />
+  <meta name="twitter:description" content="Lead Network Engineer specializing in carrier-grade broadband platforms (DPI, BNG, CGNAT). Blending network architecture with Python, SQL, and data pipelines to enhance performance and reliability." />
   <meta name="twitter:image" content="/og-image.jpg" />
   <link rel="icon" href="/favicon.ico" />
   <style>
@@ -45,7 +43,6 @@
         --accent: #0891b2;    /* cyan-700 */
         --ring: rgba(3,105,161,.25);
       }
-    }
     }
     * { box-sizing: border-box; }
     html, body { height: 100%; }
@@ -89,9 +86,10 @@
     .muted { color: var(--muted); }
     .kicker { text-transform: uppercase; letter-spacing: .22em; font-weight: 800; font-size: 12px; color: var(--muted); }
 
-    .project { display: flex; gap: 14px; align-items: flex-start; }
+    .project { display: flex; flex-direction: column; height: 100%; }
     .project h3 { margin: 0; font-size: 18px; }
     .project p { margin: 6px 0 0; }
+    .project > div { flex-grow: 1; }
 
     .footer { padding: 36px 0 56px; color: var(--muted); font-size: 14px; }
 
@@ -124,7 +122,7 @@
     "@context": "https://schema.org",
     "@type": "Person",
     "name": "Alper Demiryay",
-    "jobTitle": "Lead Broadband Services Professional",
+    "jobTitle": "Lead Network Engineer",
     "url": "https://www.alperdemiryay.com/",
     "sameAs": [
       "https://www.linkedin.com/in/alperdemiryay",
@@ -166,7 +164,7 @@
       <div class="card">
         <p class="kicker">Hello, I’m</p>
         <h1>Alper Demiryay</h1>
-        <p class="subtitle">Lead Broadband Services Professional — designing, scaling, and operating fixed & mobile broadband platforms. Interested in DPI, BNG, data engineering, and automation.</p>
+        <p class="subtitle">Lead Network Engineer building resilient, scalable, and data-driven broadband platforms. I blend deep networking expertise (DPI, BNG, CGNAT) with software engineering to automate operations and turn network data into actionable insights.</p>
         <div class="actions">
           <a class="cta" href="mailto:hello@alperdemiryay.com">Email me</a>
           <a class="pill" href="https://www.linkedin.com/in/alperdemiryay" target="_blank" rel="noreferrer">LinkedIn</a>
@@ -183,10 +181,9 @@
       <h2>About</h2>
       <div class="grid">
         <div class="span-8 card">
-          <p>I’m <strong>Alper Demiryay</strong>, a broadband network engineer based in İstanbul. I build and scale fixed & mobile broadband platforms—<em>DPI</em>, <em>BNG</em>, <em>CGNAT</em>—and the automation and data pipelines that keep them observable and resilient. I’ve spent years on the frontlines in operations and now focus on planning/engineering and long‑term reliability.</p>
+          <p>I’m <strong>Alper Demiryay</strong>, a network engineer in İstanbul specializing in large-scale broadband service provider platforms. My career has progressed from hands-on operations to a strategic engineering role, giving me a unique perspective on building systems—like DPI, BNG, and CGNAT—that are not only powerful but also maintainable and observable.</p>
           <p>My work blends <strong>network engineering</strong> with <strong>software practices</strong>: Python tooling for audits and migrations, SQL analytics on Vertica/Oracle/Postgres, containers for reproducible POCs, and Grafana for evidence‑based decisions. I like turning messy telemetry into clear actions.</p>
           <p>Outside of work: I’m a regular runner (half‑marathon training), a rock/metal guitarist, and a dad of three. I love projects that combine systems thinking with practical impact.</p>
-          <p class="muted"><em>Türkçe</em>: İstanbul’da yaşayan bir ağ mühendisi olarak DPI/BNG/CGNAT alanlarına ve otomasyon‑veri boru hatlarına odaklanıyorum. Operasyondan gelen deneyimimi planlama ve ölçeklenebilirlik tarafına taşıyarak güvenilir ve ölçülebilir sistemler kurmayı seviyorum.</p>
           <div class="actions" style="margin-top:10px">
             <a class="pill" href="#contact">Get in touch</a>
             <a class="pill" href="https://github.com/alperdemiryay" target="_blank" rel="noreferrer">GitHub</a>
@@ -205,9 +202,9 @@
           <hr style="border:0; border-top:1px solid color-mix(in oklab, var(--muted) 20%, transparent); margin:12px 0" />
           <p class="kicker">Highlights</p>
           <ul class="muted" style="margin:0; padding-left:18px">
-            <li>DPI RFI/RFP/POC leadership</li>
-            <li>BNG migrations; resiliency improvements</li>
-            <li>Flow logging & reporting pipelines</li>
+            <li>Led technical evaluations (RFI/RFP/POC) for multi-vendor DPI platforms.</li>
+            <li>Engineered high-availability BNG architectures and led migration projects.</li>
+            <li>Built data pipelines for network flow analysis to drive capacity planning.</li>
           </ul>
         </div>
       </div>
@@ -216,24 +213,20 @@
     <section id="experience">
       <h2>Experience</h2>
       <div class="grid">
-        <div class="span-6 card">
+        <div class="span-4 card">
           <h3>Lead Broadband Services Professional</h3>
-          <p class="muted">Turkcell — Network Capabilities · 2024 — Present</p>
-          <ul>
-            <li>DPI RFI/RFP/POC leadership; test topologies & KPIs</li>
-            <li>BNG migrations and broadband network transformations</li>
-            <li>Flow logging & reporting pipelines (Vertica, GaussDB)</li>
-            <li>Automation with Python/Bash; containerized tooling</li>
-          </ul>
+          <p class="muted">Turkcell · Jan 2024 — Present</p>
+          <p>Leading the technical evaluation (RFI/RFP/POC) process for next-generation DPI platforms. Architecting BNG transformation strategies and designing resilient data pipelines for network analytics on Vertica and GaussDB.</p>
         </div>
-        <div class="span-6 card">
-          <h3>Core Network Operations (previously)</h3>
-          <p class="muted">Operations → Planning/Engineering · 5+ years</p>
-          <ul>
-            <li>Operational excellence on broadband platforms</li>
-            <li>Incident response, performance tuning, resiliency</li>
-            <li>Capacity planning & KPI-driven improvements</li>
-          </ul>
+        <div class="span-4 card">
+          <h3>Broadband Services Planning & Engineering Expert</h3>
+          <p class="muted">Turkcell · Aug 2021 — Jan 2024</p>
+          <p>Designed and implemented QoS policies for fixed and mobile networks. Managed CGNAT capacity and performance. Developed Python scripts and Ansible playbooks to automate configuration validation and network audits.</p>
+        </div>
+        <div class="span-4 card">
+          <h3>Core Network Operations Expert</h3>
+          <p class="muted">Turkcell · Nov 2018 — Aug 2021</p>
+          <p>Provided Tier 3/4 operational support for critical broadband platforms. Led incident response for high-impact outages, performed root cause analysis, and drove resiliency improvements based on performance monitoring and KPIs.</p>
         </div>
       </div>
     </section>
@@ -246,21 +239,21 @@
           <div>
             <h3><a href="https://github.com/alperdemiryay/TextFSM_Tester_Gui" target="_blank" rel="noreferrer">TextFSM Tester GUI</a></h3>
             <p class="muted">Python · Network parsing · GUI</p>
-            <p>Desktop utility to rapidly validate <code>TextFSM</code> templates against raw device outputs and view structured tables live—speeding up network automation template authoring and troubleshooting.</p>
+            <p>Speeds up network automation development by providing a live GUI for testing TextFSM templates against device output, helping engineers build reliable parsers faster.</p>
           </div>
         </article>
         <article class="span-4 card project">
           <div>
             <h3><a href="https://github.com/alperdemiryay/Domain_Reachability_Check" target="_blank" rel="noreferrer">Domain Reachability Check</a></h3>
             <p class="muted">Python · Async checks · SQLite</p>
-            <p>Multi-threaded/GUI tool that tests DNS/HTTP reachability of large domain lists, stores results to SQLite, and exports reports—handy for list hygiene and block/allow verification at scale.</p>
+            <p>A concurrent network utility to verify DNS and HTTP reachability for thousands of domains. Ideal for validating large-scale firewall rules or checking the effectiveness of ad-block lists.</p>
           </div>
         </article>
         <article class="span-4 card project">
           <div>
             <h3><a href="https://github.com/alperdemiryay/Cgnat_Ip_Check" target="_blank" rel="noreferrer">CGNAT IP Check</a></h3>
             <p class="muted">Python · Broadband ops</p>
-            <p>Helpers for auditing CGNAT mappings and quickly checking whether an IP is behind carrier-grade NAT, simplifying investigations and customer support workflows.</p>
+            <p>A command-line tool to simplify CGNAT log analysis. Quickly determines if an IP address falls within a CGNAT range, streamlining troubleshooting for support teams and network operators.</p>
           </div>
         </article>
         <article class="span-4 card project">
@@ -281,7 +274,7 @@
           <div>
             <h3><a href="https://github.com/alperdemiryay/imkbStockPricePredict" target="_blank" rel="noreferrer">IMKB Stock Price Predict</a></h3>
             <p class="muted">Python · Time series · ML</p>
-            <p>Experiments forecasting Borsa İstanbul (İMKB/BIST) stock prices using classic time‑series and ML baselines; data prep, feature engineering, and evaluation pipelines.</p>
+            <p>A personal project to explore time-series forecasting and machine learning fundamentals using Python. Implements data preparation, feature engineering, and model evaluation for financial data.</p>
           </div>
         </article>
       </div>
@@ -292,67 +285,4 @@
       <div class="grid">
         <div class="span-6 card">
           <h3>Diagnosing SSL: self-signed in chain with requests</h3>
-          <p class="muted">How I debugged a cert chain issue that browsers accept but Python rejects, and safe ways to fix it.</p>
-          <p><a href="#">Read →</a></p>
-        </div>
-        <div class="span-6 card">
-          <h3>uBlock lists & domain filters exploration</h3>
-          <p class="muted">Parsing adblock lists to extract exact-match domains and avoid noisy patterns.</p>
-          <p><a href="#">Read →</a></p>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact">
-      <h2>Contact</h2>
-      <div class="card">
-        <p>Want to collaborate or say hi? The fastest way is email. I’m open to exchanging ideas on broadband networking, data engineering, and automation.</p>
-        <div class="actions">
-          <a class="cta" href="mailto:hello@alperdemiryay.com">hello@alperdemiryay.com</a>
-          <a class="pill" href="https://www.linkedin.com/in/alperdemiryay" target="_blank" rel="noreferrer">LinkedIn</a>
-          <a class="pill" href="https://github.com/alperdemiryay" target="_blank" rel="noreferrer">GitHub</a>
-        </div>
-      </div>
-    </section>
-
-    <section aria-label="At-a-glance" style="padding-top: 0">
-      <div class="grid">
-        <div class="span-4 card">
-          <p class="kicker">Focus</p>
-          <p>DPI · BNG · CGNAT · Data Pipelines · Automation</p>
-        </div>
-        <div class="span-4 card">
-          <p class="kicker">Tech</p>
-          <p>Python · Bash · SQL · Docker · Linux · Git</p>
-        </div>
-        <div class="span-4 card">
-          <p class="kicker">Hobbies</p>
-          <p>Running · Guitar (rock/metal) · Family trips</p>
-        </div>
-      </div>
-    </section>
-
-    <footer class="footer">
-      <div class="container">
-        <div style="display:flex; justify-content: space-between; flex-wrap: wrap; gap: 12px;">
-          <div>© <span id="y"></span> Alper Demiryay</div>
-          <div class="muted">Built with static HTML/CSS · Deployed on Cloudflare Pages</div>
-        </div>
-      </div>
-    </footer>
-  </main>
-
-  <script>
-    // Year stamp
-    document.getElementById('y').textContent = new Date().getFullYear();
-    // Smooth scroll for internal links
-    document.querySelectorAll('a[href^="#"]').forEach(a => {
-      a.addEventListener('click', e => {
-        const id = a.getAttribute('href').slice(1);
-        const el = document.getElementById(id);
-        if (el) { e.preventDefault(); el.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
-      });
-    });
-  </script>
-</body>
-</html>
+          <p class="muted">How I debugged a cert chain issue that browsers accept
