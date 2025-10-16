@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/rss.xsl"?>
+<rss version="2.0"
+     xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Alper Demiryay — Notes &amp; Experiments</title>
+    <link>https://www.alperdemiryay.com/</link>
+    <description>Networking, broadband platforms (DPI/BNG/CGNAT), data pipelines, Python automation, and personal notes.</description>
+    <language>en</language>
+    <atom:link href="https://www.alperdemiryay.com/rss.xml" rel="self" type="application/rss+xml"/>
+    <lastBuildDate>Wed, 15 Oct 2025 15:00:00 +0300</lastBuildDate>
+    <generator>handmade</generator>
+
+    <item>
+      <title>What is an RSS feed?</title>
+      <link>https://www.alperdemiryay.com/posts/what-is-rss</link>
+      <guid isPermaLink="false">urn:alper:post:what-is-rss</guid>
+      <pubDate>Wed, 15 Oct 2025 15:14:00 +0300</pubDate>
+      <category>Web</category>
+      <description>An intro to RSS/Atom, why it’s still great in 2025, and how to add a feed to a static site.</description>
+    </item>
+
+    <item>
+      <title>Cloudflare Email Routing → Gmail marks forwarded mail as spam: causes &amp; fixes</title>
+      <link>https://www.alperdemiryay.com/posts/cloudflare-email-routing-gmail-spam</link>
+      <guid isPermaLink="false">urn:alper:post:cf-email-routing-gmail-spam</guid>
+      <pubDate>Wed, 15 Oct 2025 09:41:00 +0300</pubDate>
+      <category>Email</category>
+      <category>Deliverability</category>
+      <description>SPF/DKIM/DMARC alignment, ARC headers, and forwarding best practices to avoid spam classification.</description>
+    </item>
+
+    <item>
+      <title>Deploy keys &amp; multiple GitHub hosts on Windows (OpenSSH v10)</title>
+      <link>https://www.alperdemiryay.com/posts/github-deploy-keys-windows-ssh-config</link>
+      <guid isPermaLink="false">urn:alper:post:deploy-keys-windows-ssh</guid>
+      <pubDate>Tue, 14 Oct 2025 11:28:00 +0300</pubDate>
+      <category>Git</category>
+      <category>DevOps</category>
+      <description>Using Host aliases, separate identities, and troubleshooting with ssh -vvv.</description>
+    </item>
+
+    <item>
+      <title>Zlib (deflate) compression: detect, understand, and generate</title>
+      <link>https://www.alperdemiryay.com/posts/zlib-deflate-basics</link>
+      <guid isPermaLink="false">urn:alper:post:zlib-deflate</guid>
+      <pubDate>Mon, 13 Oct 2025 10:00:00 +0300</pubDate>
+      <category>Python</category>
+      <category>Compression</category>
+      <description>Magic bytes like 78 9C, raw vs zlib vs gzip, and a tiny Python snippet to emit identical blobs.</description>
+    </item>
+
+    <item>
+      <title>Exact-match domain extraction from adblock lists (without noise)</title>
+      <link>https://www.alperdemiryay.com/posts/exact-domain-extraction-from-abp-lists</link>
+      <guid isPermaLink="false">urn:alper:post:abp-domain-extract</guid>
+      <pubDate>Fri, 10 Oct 2025 13:00:00 +0300</pubDate>
+      <category>Python</category>
+      <category>Filters</category>
+      <description>Parsing EasyList-style rules and writing clean CSV with deduplication guarantees.</description>
+    </item>
+
+    <item>
+      <title>Diagnosing Python requests: “self-signed certificate in certificate chain”</title>
+      <link>https://www.alperdemiryay.com/posts/python-requests-self-signed-in-chain</link>
+      <guid isPermaLink="false">urn:alper:post:requests-self-signed-chain</guid>
+      <pubDate>Thu, 09 Oct 2025 11:00:00 +0300</pubDate>
+      <category>Security</category>
+      <category>Python</category>
+      <description>Why browsers succeed but requests fails; safe remediation using proper CA bundles and interceptors.</description>
+    </item>
+
+    <item>
+      <title>Buying a personal domain and hosting it simply</title>
+      <link>https://www.alperdemiryay.com/posts/buy-domain-and-hosting</link>
+      <guid isPermaLink="false">urn:alper:post:domain-hosting</guid>
+      <pubDate>Thu, 09 Oct 2025 09:00:00 +0300</pubDate>
+      <category>Web</category>
+      <description>Registrar vs DNS vs hosting: what each does and a simple path to a live site.</description>
+    </item>
+
+    <item>
+      <title>Huawei DPI reporting architecture: questions to ask</title>
+      <link>https://www.alperdemiryay.com/posts/huawei-dpi-reporting-questions</link>
+      <guid isPermaLink="false">urn:alper:post:huawei-dpi-reporting</guid>
+      <pubDate>Tue, 07 Oct 2025 10:00:00 +0300</pubDate>
+      <category>Networking</category>
+      <category>DPI</category>
+      <description>A checklist for POC/production readiness: data stores, ETL, query patterns, and performance SLOs.</description>
+    </item>
+
+    <item>
+      <title>Remove duplicates from a Python list — fast and stable</title>
+      <link>https://www.alperdemiryay.com/posts/python-remove-duplicates</link>
+      <guid isPermaLink="false">urn:alper:post:py-dedupe</guid>
+      <pubDate>Fri, 03 Oct 2025 10:00:00 +0300</pubDate>
+      <category>Python</category>
+      <description>Idioms from set() to ordered dedupe, plus big-list perf notes.</description>
+    </item>
+
+    <item>
+      <title>LDL &amp; total cholesterol: what the numbers mean and what to tweak</title>
+      <link>https://www.alperdemiryay.com/posts/ldl-tc-notes</link>
+      <guid isPermaLink="false">urn:alper:post:ldl-tc</guid>
+      <pubDate>Fri, 03 Oct 2025 08:30:00 +0300</pubDate>
+      <category>Health</category>
+      <description>Training load vs diet, family history context, and a practical LDL-lowering menu outline.</description>
+    </item>
+
+    <item>
+      <title>Wireshark RADIUS AVP mapping differences: “Alive” vs “Interim-Update”</title>
+      <link>https://www.alperdemiryay.com/posts/wireshark-radius-avp-mapping</link>
+      <guid isPermaLink="false">urn:alper:post:wireshark-radius-avp</guid>
+      <pubDate>Thu, 02 Oct 2025 09:00:00 +0300</pubDate>
+      <category>Networking</category>
+      <category>Packets</category>
+      <description>How dissector versions and dictionary files impact value decoding for Acct-Status-Type.</description>
+    </item>
+
+    <item>
+      <title>HTTP 302 vs 307: the subtle redirect difference</title>
+      <link>https://www.alperdemiryay.com/posts/http-302-vs-307</link>
+      <guid isPermaLink="false">urn:alper:post:http-302-307</guid>
+      <pubDate>Thu, 18 Sep 2025 10:00:00 +0300</pubDate>
+      <category>Web</category>
+      <description>Method preservation, caching hints, and when to pick each status code.</description>
+    </item>
+
+    <item>
+      <title>Best Apple Watch Ultra 3 bands for running</title>
+      <link>https://www.alperdemiryay.com/posts/apple-watch-ultra-3-running-bands</link>
+      <guid isPermaLink="false">urn:alper:post:aw-ultra3-bands</guid>
+      <pubDate>Thu, 18 Sep 2025 08:00:00 +0300</pubDate>
+      <category>Gear</category>
+      <category>Running</category>
+      <description>Comfort, sweat management, and security during intervals and long runs.</description>
+    </item>
+
+    <item>
+      <title>Trail running primer for road runners</title>
+      <link>https://www.alperdemiryay.com/posts/trail-running-primer</link>
+      <guid isPermaLink="false">urn:alper:post:trail-primer</guid>
+      <pubDate>Sun, 28 Sep 2025 13:00:00 +0300</pubDate>
+      <category>Running</category>
+      <description>How trail pacing differs, gear basics, and realistic first-race targets.</description>
+    </item>
+
+    <item>
+      <title>DJI Osmo Action 5: Instagram-ready video settings</title>
+      <link>https://www.alperdemiryay.com/posts/dji-osmo-action-5-instagram-settings</link>
+      <guid isPermaLink="false">urn:alper:post:dji-oa5-ig</guid>
+      <pubDate>Tue, 24 Sep 2025 16:00:00 +0300</pubDate>
+      <category>Video</category>
+      <description>Resolution, frame rate, field of view, and stabilization profiles for social formats.</description>
+    </item>
+
+    <item>
+      <title>OpenStack learning roadmap (Red Hat track)</title>
+      <link>https://www.alperdemiryay.com/posts/openstack-learning-roadmap</link>
+      <guid isPermaLink="false">urn:alper:post:openstack-roadmap</guid>
+      <pubDate>Wed, 11 Jun 2025 10:00:00 +0300</pubDate>
+      <category>Cloud</category>
+      <category>Certification</category>
+      <description>CL110/CL210 sequence, home lab tips on KVM/QEMU, and study materials.</description>
+    </item>
+
+    <item>
+      <title>IMKB/BIST stock price prediction experiments</title>
+      <link>https://www.alperdemiryay.com/posts/imkb-stock-price-predict</link>
+      <guid isPermaLink="false">urn:alper:post:imkb-predict</guid>
+      <pubDate>Tue, 24 Sep 2024 12:00:00 +0300</pubDate>
+      <category>Data</category>
+      <category>Time Series</category>
+      <description>Feature engineering and baseline models; what worked and what didn’t.</description>
+    </item>
+
+  </channel>
+</rss>
