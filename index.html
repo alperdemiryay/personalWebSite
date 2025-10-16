@@ -108,12 +108,25 @@
       transform: translateY(0);
     }
 
+    /* Feed styles */
+    .feed-grid { display: grid; gap: 18px; grid-template-columns: repeat(12, 1fr); }
+    .feed-card { grid-column: span 6; border-radius: var(--radius); background: color-mix(in oklab, var(--card) 88%, transparent); border: 1px solid color-mix(in oklab, var(--muted) 15%, transparent); padding: 18px; box-shadow: var(--shadow); }
+    .feed-card a.title { font-weight: 800; font-size: 18px; line-height: 1.3; text-decoration: none; color: var(--text); }
+    .feed-card a.title:hover { text-decoration: underline; }
+    .feed-meta { margin: 6px 0 8px; color: var(--muted); font-size: 0.9rem; display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+    .badge { display: inline-block; font-size: 0.75rem; padding: 2px 8px; border-radius: 999px; background: color-mix(in oklab, var(--surface) 92%, transparent); border: 1px solid color-mix(in oklab, var(--muted) 20%, transparent); color: var(--muted); }
+    .feed-desc { color: color-mix(in oklab, var(--text) 90%, transparent); font-size: 0.98rem; margin: 0.5rem 0 0; }
+    .feed-error { color: #fca5a5; }
+
     @media (max-width: 900px) {
       .hero { grid-template-columns: 1fr; }
       .grid { grid-template-columns: repeat(6, 1fr); }
       .span-8 { grid-column: span 6; }
       .span-6 { grid-column: span 6; }
       .span-4 { grid-column: span 6; }
+
+      .feed-grid { grid-template-columns: repeat(6, 1fr); }
+      .feed-card { grid-column: span 6; }
 
       .nav-links {
         display: none;
@@ -273,8 +286,8 @@
       <div class="grid">
         <div class="span-8 card">
           <p>I’m <strong>Alper Demiryay</strong>, a network engineer in İstanbul specializing in large-scale broadband service provider platforms. My career has progressed from hands-on operations to a strategic engineering role, giving me a unique perspective on building systems—like DPI, BNG, and CGNAT—that are not only powerful but also maintainable and observable.</p>
-          <p>My work blends <strong>network engineering</strong> with <strong>software practices</strong>: Python tooling for audits and migrations, SQL analytics on Vertica/Oracle/Postgres, containers for reproducible POCs, and Grafana for evidence‑based decisions. I like turning messy telemetry into clear actions.</p>
-          <p>Outside of work: I’m a regular runner (half‑marathon training), a rock/metal guitarist, and a dad of three. I love projects that combine systems thinking with practical impact.</p>
+          <p>My work blends <strong>network engineering</strong> with <strong>software practices</strong>: Python tooling for audits and migrations, SQL analytics on Vertica/Oracle/Postgres, containers for reproducible POCs, and Grafana for evidence-based decisions. I like turning messy telemetry into clear actions.</p>
+          <p>Outside of work: I’m a regular runner (half-marathon training), a rock/metal guitarist, and a dad of three. I love projects that combine systems thinking with practical impact.</p>
           <div class="actions" style="margin-top:10px">
             <a class="pill" href="#contact">Get in touch</a>
             <a class="pill" href="https://github.com/alperdemiryay" target="_blank" rel="noreferrer me">GitHub</a>
@@ -372,23 +385,16 @@
     </section>
 
     <section id="writing" class="fade-in-section">
-        <h2>Writing</h2>
-        <p class="muted" style="margin-top:-6px">Thoughts on networking, automation, and data. You can also <a href="/rss.xml" target="_blank">subscribe via RSS</a>.</p>
-        <div class="grid">
-            <div class="span-6 card">
-            <h3>Diagnosing SSL: self-signed in chain with requests</h3>
-            <p class="muted">How I debugged a cert chain issue that browsers accept
-            <p><a href="#">Read →</a></p>
-            </div>
+      <h2>Writing</h2>
+      <p class="muted" style="margin-top:-6px">Thoughts on networking, automation, and data. You can also <a href="/rss.xml" target="_blank" rel="noopener">subscribe via RSS</a>.</p>
 
-            <div class="span-6 card">
-            <h3>Extracting exact-match domains from uBlock lists (without noise)</h3>
-            <p class="muted">Parsing ABP rules to keep only true domain filters; performance tips from building my Domain Reachability tool.</p>
-            <p><a href="#">Read →</a></p>
-            </div>
-        </div>
+      <!-- RSS FEED: container -->
+      <section id="rss-feed" aria-labelledby="rss-feed-heading" class="feed">
+        <h3 id="rss-feed-heading" class="kicker" style="margin-bottom:10px;">Latest posts</h3>
+        <div id="rss-feed-list" class="feed-grid" role="list"></div>
+        <p id="rss-feed-error" class="feed-error" hidden>Couldn’t load the feed.</p>
+      </section>
     </section>
-
 
     <section id="contact" class="fade-in-section">
       <h2>Contact</h2>
@@ -409,5 +415,111 @@
     </footer>
 
   </main>
+
+  <!-- RSS FEED SCRIPT -->
+  <script type="module">
+    // Config
+    const FEED_URL = '/rss.xml';         // same-origin feed
+    const LIMIT = null;                   // set to a number (e.g., 8) to cap items
+    const tz = 'Europe/Istanbul';
+
+    const elList = document.getElementById('rss-feed-list');
+    const elError = document.getElementById('rss-feed-error');
+
+    function formatDate(pubDateStr) {
+      const d = new Date(pubDateStr);
+      if (Number.isNaN(d.valueOf())) return pubDateStr;
+      return new Intl.DateTimeFormat('en', {
+        timeZone: tz,
+        year: 'numeric', month: 'short', day: '2-digit',
+        hour: '2-digit', minute: '2-digit'
+      }).format(d);
+    }
+
+    function sanitizeText(s) {
+      return (s || '').replace(/[&<>"']/g, ch =>
+        ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
+    }
+
+    function truncate(s, n = 180) {
+      if (!s) return '';
+      if (s.length <= n) return s;
+      const cut = s.slice(0, n);
+      const lastSpace = cut.lastIndexOf(' ');
+      return (lastSpace > 40 ? cut.slice(0, lastSpace) : cut) + '…';
+    }
+
+    function makeCard({ title, link, pubDate, categories, description }) {
+      const card = document.createElement('article');
+      card.className = 'feed-card';
+      card.setAttribute('role', 'listitem');
+
+      const a = document.createElement('a');
+      a.className = 'title';
+      a.href = link;
+      a.rel = 'noopener';
+      a.textContent = title || 'Untitled';
+      card.appendChild(a);
+
+      const meta = document.createElement('div');
+      meta.className = 'feed-meta';
+
+      const dateEl = document.createElement('span');
+      dateEl.textContent = formatDate(pubDate);
+      meta.appendChild(dateEl);
+
+      if (Array.isArray(categories) && categories.length) {
+        categories.forEach(c => {
+          const b = document.createElement('span');
+          b.className = 'badge';
+          b.textContent = c;
+          meta.appendChild(b);
+        });
+      }
+      card.appendChild(meta);
+
+      if (description) {
+        const p = document.createElement('p');
+        p.className = 'feed-desc';
+        p.innerHTML = sanitizeText(truncate(description));
+        card.appendChild(p);
+      }
+
+      return card;
+    }
+
+    async function loadFeed() {
+      try {
+        const res = await fetch(FEED_URL, { cache: 'no-cache' });
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        const xmlText = await res.text();
+
+        const doc = new DOMParser().parseFromString(xmlText, 'application/xml');
+        const parseErr = doc.querySelector('parsererror');
+        if (parseErr) throw new Error('Invalid XML');
+
+        const items = [...doc.querySelectorAll('channel > item')].map(item => ({
+          title: (item.querySelector('title')?.textContent ?? '').trim(),
+          link: (item.querySelector('link')?.textContent ?? '').trim(),
+          guid: (item.querySelector('guid')?.textContent ?? '').trim(),
+          pubDate: (item.querySelector('pubDate')?.textContent ?? '').trim(),
+          categories: [...item.querySelectorAll('category')].map(n => n.textContent.trim()),
+          description: (item.querySelector('description')?.textContent ?? '').trim(),
+        }));
+
+        items.sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate));
+
+        const toRender = LIMIT ? items.slice(0, LIMIT) : items;
+
+        elList.innerHTML = '';
+        toRender.forEach(i => elList.appendChild(makeCard(i)));
+      } catch (e) {
+        console.error('RSS load error:', e);
+        elError.hidden = false;
+      }
+    }
+
+    loadFeed();
+  </script>
 </body>
 </html>
