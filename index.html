@@ -417,109 +417,104 @@
   </main>
 
   <!-- RSS FEED SCRIPT -->
-  <script type="module">
-    // Config
-    const FEED_URL = '/rss.xml';         // same-origin feed
-    const LIMIT = null;                   // set to a number (e.g., 8) to cap items
-    const tz = 'Europe/Istanbul';
+<script type="module">
+  const FEED_URL = new URL('rss.xml', location.origin).toString();
+  const LIMIT = null;
+  const tz = 'Europe/Istanbul';
 
-    const elList = document.getElementById('rss-feed-list');
-    const elError = document.getElementById('rss-feed-error');
+  const elList  = document.getElementById('rss-feed-list');
+  const elError = document.getElementById('rss-feed-error');
 
-    function formatDate(pubDateStr) {
-      const d = new Date(pubDateStr);
-      if (Number.isNaN(d.valueOf())) return pubDateStr;
-      return new Intl.DateTimeFormat('en', {
-        timeZone: tz,
-        year: 'numeric', month: 'short', day: '2-digit',
-        hour: '2-digit', minute: '2-digit'
-      }).format(d);
+  function showError(msg) {
+    elError.textContent = `Couldn’t load the feed: ${msg}`;
+    elError.hidden = false;
+  }
+
+  function formatDate(s) {
+    const d = new Date(s);
+    if (Number.isNaN(d.valueOf())) return s || '';
+    return new Intl.DateTimeFormat('en', {
+      timeZone: tz, year: 'numeric', month: 'short', day: '2-digit',
+      hour: '2-digit', minute: '2-digit'
+    }).format(d);
+  }
+  const esc = s => (s||'').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const truncate = (s='', n=180) => s.length<=n ? s : (s.slice(0,n).split(' ').slice(0,-1).join(' ') || s.slice(0,n))+'…';
+
+  function makeCard({ title, link, pubDate, categories, description }) {
+    const card = document.createElement('article');
+    card.className = 'feed-card';
+    card.setAttribute('role', 'listitem');
+
+    const a = document.createElement('a');
+    a.className = 'title';
+    a.href = link || '#';
+    a.rel = 'noopener';
+    a.textContent = title || 'Untitled';
+    card.appendChild(a);
+
+    const meta = document.createElement('div');
+    meta.className = 'feed-meta';
+    const dateEl = document.createElement('span');
+    dateEl.textContent = formatDate(pubDate);
+    meta.appendChild(dateEl);
+    (categories || []).forEach(c => {
+      const b = document.createElement('span'); b.className = 'badge'; b.textContent = c; meta.appendChild(b);
+    });
+    card.appendChild(meta);
+
+    if (description) {
+      const p = document.createElement('p');
+      p.className = 'feed-desc';
+      p.innerHTML = esc(truncate(description));
+      card.appendChild(p);
     }
+    return card;
+  }
 
-    function sanitizeText(s) {
-      return (s || '').replace(/[&<>"']/g, ch =>
-        ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
-    }
+  async function loadFeed() {
+    try {
+      const res = await fetch(FEED_URL, { cache: 'no-store' });
+      if (!res.ok) { showError(`${res.status} ${res.statusText} at ${FEED_URL}`); return; }
 
-    function truncate(s, n = 180) {
-      if (!s) return '';
-      if (s.length <= n) return s;
-      const cut = s.slice(0, n);
-      const lastSpace = cut.lastIndexOf(' ');
-      return (lastSpace > 40 ? cut.slice(0, lastSpace) : cut) + '…';
-    }
+      const xmlText = await res.text();
+      console.debug('[rss.xml first 300 chars]', xmlText.slice(0, 300));
 
-    function makeCard({ title, link, pubDate, categories, description }) {
-      const card = document.createElement('article');
-      card.className = 'feed-card';
-      card.setAttribute('role', 'listitem');
-
-      const a = document.createElement('a');
-      a.className = 'title';
-      a.href = link;
-      a.rel = 'noopener';
-      a.textContent = title || 'Untitled';
-      card.appendChild(a);
-
-      const meta = document.createElement('div');
-      meta.className = 'feed-meta';
-
-      const dateEl = document.createElement('span');
-      dateEl.textContent = formatDate(pubDate);
-      meta.appendChild(dateEl);
-
-      if (Array.isArray(categories) && categories.length) {
-        categories.forEach(c => {
-          const b = document.createElement('span');
-          b.className = 'badge';
-          b.textContent = c;
-          meta.appendChild(b);
-        });
+      const doc = new DOMParser().parseFromString(xmlText, 'application/xml');
+      const parseErr = doc.querySelector('parsererror');
+      if (parseErr) {
+        const reason = parseErr.textContent.replace(/\s+/g,' ').trim();
+        showError(`invalid XML – ${reason}`);
+        console.error('[parsererror]', reason);
+        return;
       }
-      card.appendChild(meta);
 
-      if (description) {
-        const p = document.createElement('p');
-        p.className = 'feed-desc';
-        p.innerHTML = sanitizeText(truncate(description));
-        card.appendChild(p);
-      }
+      const items = [...doc.querySelectorAll('channel > item')].map(item => ({
+        title: item.querySelector('title')?.textContent?.trim(),
+        link: item.querySelector('link')?.textContent?.trim(),
+        guid: item.querySelector('guid')?.textContent?.trim(),
+        pubDate: item.querySelector('pubDate')?.textContent?.trim(),
+        categories: [...item.querySelectorAll('category')].map(n => n.textContent.trim()),
+        description: item.querySelector('description')?.textContent?.trim(),
+      }));
 
-      return card;
-    }
+      if (!items.length) { showError('no <item> elements found'); return; }
 
-    async function loadFeed() {
-      try {
-        const res = await fetch(FEED_URL, { cache: 'no-cache' });
-        if (!res.ok) throw new Error('HTTP ' + res.status);
-        const xmlText = await res.text();
-
-        const doc = new DOMParser().parseFromString(xmlText, 'application/xml');
-        const parseErr = doc.querySelector('parsererror');
-        if (parseErr) throw new Error('Invalid XML');
-
-        const items = [...doc.querySelectorAll('channel > item')].map(item => ({
-          title: (item.querySelector('title')?.textContent ?? '').trim(),
-          link: (item.querySelector('link')?.textContent ?? '').trim(),
-          guid: (item.querySelector('guid')?.textContent ?? '').trim(),
-          pubDate: (item.querySelector('pubDate')?.textContent ?? '').trim(),
-          categories: [...item.querySelectorAll('category')].map(n => n.textContent.trim()),
-          description: (item.querySelector('description')?.textContent ?? '').trim(),
-        }));
-
-        items.sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate));
-
-        const toRender = LIMIT ? items.slice(0, LIMIT) : items;
-
-        elList.innerHTML = '';
-        toRender.forEach(i => elList.appendChild(makeCard(i)));
-      } catch (e) {
-        console.error('RSS load error:', e);
-        elError.hidden = false;
+      items.sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate));
+      (LIMIT ? items.slice(0, LIMIT) : items).forEach(i => elList.appendChild(makeCard(i)));
+      elError.hidden = true;
+    } catch (e) {
+      console.error('RSS load error:', e);
+      if (location.protocol === 'file:') {
+        showError('cannot fetch over file:// — run a local server');
+      } else {
+        showError(e.message || 'unknown error');
       }
     }
+  }
 
-    loadFeed();
-  </script>
+  loadFeed();
+</script>
+
 </body>
 </html>
