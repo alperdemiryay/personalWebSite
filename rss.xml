@@ -12,6 +12,15 @@
     <generator>handmade</generator>
 
     <item>
+      <title>What is test feed</title>
+      <link>https://www.alperdemiryay.com/posts/what-is-test-feed</link>
+      <guid isPermaLink="false">urn:alper:post:what-is-test-feed</guid>
+      <pubDate>Wed, 16 Oct 2025 17:29:00 +0300</pubDate>
+      <category>Test</category>
+      <description>How to add a test feed to a static site with only editing xml.</description>
+    </item>
+
+    <item>
       <title>What is an RSS feed?</title>
       <link>https://www.alperdemiryay.com/posts/what-is-rss</link>
       <guid isPermaLink="false">urn:alper:post:what-is-rss</guid>
