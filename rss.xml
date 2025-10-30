@@ -12,12 +12,21 @@
     <generator>handmade</generator>
 
     <item>
-      <title>What is test feed</title>
-      <link>https://www.alperdemiryay.com/posts/what-is-test-feed</link>
-      <guid isPermaLink="false">urn:alper:post:what-is-test-feed</guid>
-      <pubDate>Wed, 16 Oct 2025 17:29:00 +0300</pubDate>
-      <category>Test</category>
-      <description>How to add a test feed to a static site with only editing xml.</description>
+      <title>ClickHouse vs Vertica: Overview &amp; Use-Cases</title>
+      <link>https://www.alperdemiryay.com/posts/clickhouse-vs-vertica-overview</link>
+      <guid isPermaLink="false">urn:alper:post:clickhouse-vs-vertica-overview</guid>
+      <pubDate>Thu, 30 Oct 2025 08:00:00 +0300</pubDate>
+      <category>Databases</category>
+      <description>SQL columnar OLAP comparison: ClickHouse excels at real-time analytics, massive ingest, and time-series/logs with eventual mutations; Vertica shines for enterprise BI with strong ANSI SQL, robust MERGE/UPSERT, and workload governance. Includes quick picker and feature checklist.</description>
+    </item>
+
+    <item>
+      <title>HTTP Digest Authentication (RFC 7616): How it works &amp; example</title>
+      <link>https://www.alperdemiryay.com/posts/http-digest-authentication-rfc7616</link>
+      <guid isPermaLink="false">urn:alper:post:http-digest-authentication-rfc7616</guid>
+      <pubDate>Wed, 29 Oct 2025 09:10:00 +0300</pubDate>
+      <category>Web Security</category>
+      <description>Digest in a nutshell: server sends 401 with WWW-Authenticate (realm, nonce, qop, algorithm); client replies with Authorization: Digest computed from A1 = user:realm:password (or H(A1):nonce:cnonce for -sess), A2 = method:uri (or method:uri:H(body) for auth-int), and response = H( H(A1):nonce:nc:cnonce:qop:H(A2) ). Prefers SHA-256 / SHA-512/256 (MD5 for legacy). Post includes a fully worked example (Mufasa / &#39;Circle of Life&#39;), exact inputs/outputs, and notes on nonce-count, cnonce, userhash, and mutual auth (Authentication-Info).</description>
     </item>
 
     <item>
